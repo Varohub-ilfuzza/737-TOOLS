@@ -15,10 +15,11 @@ class AppStrings {
   static const navFim = 'FIM / Fallos';
   static const navCommonPn = 'Common PN';
   static const navRevisiones = 'Revisiones';
+  static const navFavorites = 'Favoritos';
 
   // CB screen
   static const cbTitle = 'Circuit Breakers';
-  static const cbSearchHint = 'Buscar sistema (ej. APU)';
+  static const cbSearchHint = 'Buscar sistema, panel, grid o AMM';
 
   // FIM screen
   static const fimTitle = 'Buscador FIM';
@@ -72,6 +73,7 @@ class AppStrings {
   static const searchHistoryLabel = 'Búsquedas recientes';
   static const noResults = 'Sin resultados';
   static const noFavorites = 'No hay favoritos guardados';
+  static const favoritesHint = 'Toca la estrella ★ en cualquier elemento\npara añadirlo aquí.';
 
   // Verification badges
   static const verifiedBadge = 'Verificado';

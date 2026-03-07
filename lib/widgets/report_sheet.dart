@@ -99,6 +99,7 @@ class ReportSheet {
                     alignLabelWithHint: true,
                   ),
                   maxLines: 4,
+                  maxLength: 1000,
                   validator: (v) => v == null || v.trim().isEmpty
                       ? AppStrings.reportRequired
                       : null,

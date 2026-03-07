@@ -47,7 +47,7 @@ class _CbSearchScreenState extends State<CbSearchScreen> {
               padding: const EdgeInsets.all(16.0),
               child: SearchableList(
                 items: _items,
-                searchKeys: const ['system'],
+                searchKeys: const ['system', 'panel', 'grid', 'amm'],
                 searchLabel: AppStrings.cbSearchHint,
                 screenId: 'cb',
                 itemBuilder: (context, item, isFav, onToggle) => CbItemCard(

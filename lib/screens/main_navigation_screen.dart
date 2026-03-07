@@ -4,6 +4,7 @@ import 'cb_search_screen.dart';
 import 'fim_search_screen.dart';
 import 'common_pn_screen.dart';
 import 'revisions_screen.dart';
+import 'favorites_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -20,6 +21,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     FimSearchScreen(),
     CommonPnScreen(),
     RevisionsScreen(),
+    FavoritesScreen(),
   ];
 
   @override
@@ -44,6 +46,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.checklist),
             label: AppStrings.navRevisiones,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: AppStrings.navFavorites,
           ),
         ],
         currentIndex: _selectedIndex,

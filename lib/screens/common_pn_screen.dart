@@ -100,6 +100,7 @@ class _CommonPnScreenState extends State<CommonPnScreen> {
                         labelText: AppStrings.pnFieldDesc,
                         border: OutlineInputBorder(),
                       ),
+                      maxLength: 200,
                       validator: (v) =>
                           v == null || v.isEmpty ? 'Campo obligatorio' : null,
                     ),
@@ -110,6 +111,7 @@ class _CommonPnScreenState extends State<CommonPnScreen> {
                         labelText: AppStrings.pnFieldPn,
                         border: OutlineInputBorder(),
                       ),
+                      maxLength: 30,
                       validator: (v) =>
                           v == null || v.isEmpty ? 'Campo obligatorio' : null,
                     ),
@@ -121,6 +123,7 @@ class _CommonPnScreenState extends State<CommonPnScreen> {
                         border: OutlineInputBorder(),
                       ),
                       keyboardType: TextInputType.number,
+                      maxLength: 10,
                       validator: (v) =>
                           v == null || v.isEmpty ? 'Campo obligatorio' : null,
                     ),

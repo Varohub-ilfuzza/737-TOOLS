@@ -57,6 +57,13 @@ class SubmissionsService {
 
   // ── Export ────────────────────────────────────────────────────────────────
 
+  /// Prepends a single-quote to neutralise CSV formula triggers (=, +, -, @).
+  static String _csvSafe(String v) {
+    final s = v.replaceAll('"', "'");
+    if (s.isNotEmpty && '=+-@'.contains(s[0])) return "'$s";
+    return s;
+  }
+
   /// Generates a UTF-8 CSV file in the temp directory and returns its path.
   static Future<String> exportToCsvFile() async {
     final list = await getAll();
@@ -65,10 +72,9 @@ class SubmissionsService {
     for (final s in list) {
       final date = (s['date'] ?? '').toString().replaceAll(',', '-');
       final section = s['section'] ?? '';
-      final ref = (s['itemRef'] ?? '').toString().replaceAll('"', "'");
-      final type = s['type'] ?? '';
-      final desc =
-          (s['description'] ?? '').toString().replaceAll('"', "'").replaceAll('\n', ' ');
+      final ref = _csvSafe((s['itemRef'] ?? '').toString().replaceAll('\n', ' '));
+      final type = _csvSafe((s['type'] ?? '').toString());
+      final desc = _csvSafe((s['description'] ?? '').toString().replaceAll('\n', ' '));
       final status = s['status'] ?? 'pending';
       sb.writeln('$date,$section,"$ref","$type","$desc",$status');
     }
