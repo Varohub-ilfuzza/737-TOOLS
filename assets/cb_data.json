@@ -1,0 +1,6 @@
+[
+  {"id": "cb_1", "system": "APU ECU", "panel": "P6-3", "grid": "C14", "amm": "AMM 28-22-00"},
+  {"id": "cb_2", "system": "Standby Power", "panel": "P6-1", "grid": "D10", "amm": "AMM 24-20-00"},
+  {"id": "cb_3", "system": "FMC Left", "panel": "P18-2", "grid": "E5", "amm": "AMM 34-61-00"},
+  {"id": "cb_4", "system": "Fuel Pump L FWD", "panel": "P6-4", "grid": "B2", "amm": "AMM 28-21-00"}
+]

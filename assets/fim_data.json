@@ -1,0 +1,5 @@
+[
+  {"id": "fim_1", "fault": "21-21134", "desc": "Pack 1 Temp Control Fault", "fix": "Revisar sensor de ram air door"},
+  {"id": "fim_2", "fault": "PSEU LIGHT", "desc": "Proximity Switch Electronic Unit", "fix": "Hacer BITE test en panel trasero"},
+  {"id": "fim_3", "fault": "APU FAULT", "desc": "APU Auto Shutdown", "fix": "Revisar nivel de aceite antes de reset"}
+]
