@@ -5,6 +5,32 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
 ---
 
+## [Beta 0.3] — 2026-03-08
+
+### Añadido
+- **Módulo Esquemas (tab 6):** Nueva pantalla `SchemasScreen` con listado de todos los capítulos ATA del B737 (ATA 21 al 49). Cada ATA es expandible y muestra sus sub-ATAs con título, código y número de páginas.
+- **Visor de esquemas `SchemaViewerScreen`:** Visualizador de PDFs con zoom/pan mediante `pdfx`. Navegación página a página con botones prev/next y contador de página actual.
+- **Herramienta de dibujo y anotación sobre PDF:**
+  - **Modo Dibujo** activable/desactivable desde la AppBar (ícono lápiz / ojo).
+  - Herramienta **Lápiz** — trazo libre con curva suavizada (Bézier cuadrático).
+  - Herramienta **Flecha** — arrastra para dibujar una flecha con cabeza.
+  - **3 grosores** de trazo (fino, medio, grueso).
+  - **5 colores** de paleta (azul, rojo, verde, ámbar, blanco).
+  - **Undo** — deshace el último trazo de la página actual.
+  - **Borrar página** — elimina anotaciones de la página actual.
+  - **Borrar todo** — elimina todas las anotaciones del esquema (con confirmación).
+- **Persistencia de anotaciones:** `AnnotationsService` serializa y guarda cada trazo por esquema + página en `SharedPreferences` como JSON. Las anotaciones sobreviven al cierre de la app hasta que el usuario las borra explícitamente.
+- **`AnnotationPainter`** (`CustomPainter`): renderizado eficiente de trazos con `shouldRepaint` selectivo.
+- **Registro de esquemas `schemas_registry.dart`:** Lista de ATAs lista para ser poblada; incluye instrucciones en comentarios de cómo añadir nuevos PDFs.
+- `app_strings.dart`: 20+ cadenas nuevas para el módulo Esquemas.
+- `pubspec.yaml`: dependencia `pdfx ^2.6.0`; directorio de assets `assets/schemas/`.
+
+### Técnico
+- Modelo de datos `AtaChapter` / `SchemaEntry` en `lib/models/schema_item.dart`.
+- Separación limpia entre capa de datos (`schemas_registry.dart`), capa de servicio (`annotations_service.dart`) y capa de UI (`schemas_screen.dart`, `schema_viewer_screen.dart`).
+
+---
+
 ## [Beta 0.2] — 2026-03-07
 
 ### Seguridad

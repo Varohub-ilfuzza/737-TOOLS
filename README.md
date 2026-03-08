@@ -21,6 +21,7 @@ B737 Tools es una aplicación móvil Flutter para iOS y Android diseñada para u
 | 3 | **Common PN** | Referencia de números de parte; permite añadir PNs personalizados |
 | 4 | **Revisiones** | Checklists de Transit Check y Daily Check con undo por deslizamiento |
 | 5 | **Favoritos** | Acceso rápido a los items marcados como favoritos de todos los módulos |
+| 6 | **Esquemas** | Visor de esquemas PDF organizados por ATA con herramienta de anotación persistente |
 
 ---
 
@@ -45,7 +46,7 @@ path_provider: ^2.1.2         # directorio temporal para exportación CSV
 
 ## Versión
 
-**Beta 0.2** — Marzo 2026
+**Beta 0.3** — Marzo 2026
 
 Consulta [CHANGELOG.md](CHANGELOG.md) para el historial completo de cambios.
 

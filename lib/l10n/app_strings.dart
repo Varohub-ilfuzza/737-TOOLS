@@ -98,6 +98,30 @@ class AppStrings {
   static const contributionsEmpty = 'No hay contribuciones enviadas aún.';
   static const contributionsMenuLabel = 'Ver contribuciones';
 
+  // Schemas
+  static const navSchemas = 'Esquemas';
+  static const schemasTitle = 'Esquemas B737';
+  static const schemasEmpty = 'Aún no hay esquemas cargados';
+  static const schemasEmptyHint =
+      'Añade PDFs organizados por ATA en assets/schemas/\ny regístralos en lib/data/schemas_registry.dart';
+  static const schemasPending = 'Sin esquemas';
+  static const schemasFilterAll = 'Mostrar todos los ATAs';
+  static const schemasFilterActive = 'Solo ATAs con esquemas';
+  static const schemasPage = 'Pág.';
+  static const schemasPages = 'págs.';
+  static const schemasDrawMode = 'Modo dibujo';
+  static const schemasViewMode = 'Modo vista';
+  static const schemasDrawingActive = 'Modo dibujo activo';
+  static const schemasUndo = 'Deshacer último trazo';
+  static const schemasClearPage = 'Borrar anotaciones de esta página';
+  static const schemasClearPageSub = 'Elimina los trazos solo de la página actual';
+  static const schemasClearAll = 'Borrar todas las anotaciones';
+  static const schemasClearAllSub = 'Elimina los trazos de todas las páginas del esquema';
+  static const schemasClearAllConfirm =
+      '¿Eliminar todas las anotaciones de este esquema?\nNo se puede deshacer.';
+  static const schemasPen = 'Lápiz';
+  static const schemasArrow = 'Flecha';
+
   // General
   static const loading = 'Cargando...';
   static const cancel = 'Cancelar';
