@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_strings.dart';
-import 'main_navigation_screen.dart';
+import 'home_screen.dart';
 
 class DisclaimerScreen extends StatelessWidget {
   const DisclaimerScreen({super.key});
@@ -44,7 +44,7 @@ class DisclaimerScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainNavigationScreen(),
+                      builder: (context) => const HomeScreen(),
                     ),
                   );
                 },
