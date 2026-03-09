@@ -5,6 +5,26 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
 ---
 
+## [Beta 0.4] — 2026-03-09
+
+### Añadido
+- **Sistema OTA de actualización de datos** — los datos (CB, FIM, PN) se actualizan automáticamente desde GitHub sin requerir una nueva versión en la store.
+  - `RemoteDataService`: al arrancar comprueba `data_version.json` en GitHub raw; si la versión remota es mayor, descarga los tres JSON y los persiste en el directorio de documentos del dispositivo.
+  - `DataService` actualizado: lee primero del archivo OTA en disco; si no existe o falla, usa el asset bundled como fallback. La app siempre funciona offline.
+  - `DataCache.invalidateAll()`: invalida la caché en memoria tras descarga OTA.
+  - `assets/data_version.json`: fichero de control de versión en el repo. Para desplegar datos nuevos a todos los dispositivos basta incrementar `"version"` y hacer push.
+  - `main.dart`: el chequeo OTA es completamente asíncrono y no bloquea el arranque.
+
+### Flujo para actualizar datos sin tocar la store
+```
+1. Edita cb_data.json / fim_data.json / pn_data.json en el repo
+2. Incrementa "version" en assets/data_version.json
+3. Push a rama main
+→ Todos los dispositivos descargan los datos en el próximo arranque
+```
+
+---
+
 ## [Beta 0.3] — 2026-03-08
 
 ### Añadido

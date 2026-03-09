@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "updated": "2026-03-09",
+  "files": {
+    "cb":  "assets/cb_data.json",
+    "fim": "assets/fim_data.json",
+    "pn":  "assets/pn_data.json"
+  },
+  "notes": "Incrementa 'version' para forzar descarga en todos los dispositivos."
+}

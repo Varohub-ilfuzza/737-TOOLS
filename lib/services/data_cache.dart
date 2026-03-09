@@ -31,4 +31,11 @@ class DataCache {
   }
 
   void invalidatePn() => _pnItems = null;
+
+  /// Invalida toda la caché en memoria tras una actualización OTA.
+  void invalidateAll() {
+    _cbItems = null;
+    _fimItems = null;
+    _pnItems = null;
+  }
 }

@@ -46,7 +46,7 @@ path_provider: ^2.1.2         # directorio temporal para exportación CSV
 
 ## Versión
 
-**Beta 0.3** — Marzo 2026
+**Beta 0.4** — Marzo 2026
 
 Consulta [CHANGELOG.md](CHANGELOG.md) para el historial completo de cambios.
 
