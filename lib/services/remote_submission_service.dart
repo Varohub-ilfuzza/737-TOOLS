@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import '../config/secrets.dart';
 
 /// Envía cada contribución de usuario a:
 ///   · Telegram  — notificación instantánea al autor vía bot.
@@ -8,17 +9,13 @@ import 'package:flutter/foundation.dart';
 ///
 /// Ambos envíos son fire-and-forget: nunca bloquean la UI ni
 /// lanzan excepciones al resto de la app aunque fallen.
+///
+/// Los tokens se inyectan en tiempo de compilación con --dart-define.
+/// Ver lib/config/secrets.dart para instrucciones.
 class RemoteSubmissionService {
-  // ── Configuración ────────────────────────────────────────────────────────
-  static const _tgToken  = '8774806632:AAHtHYwciQNaIxj2W03EmOglqJJ5QQyOLY8';
-  static const _tgChatId = '449580423';
-  static const _tgUrl    =
-      'https://api.telegram.org/bot$_tgToken/sendMessage';
-
-  static const _sheetsUrl =
-      'https://script.google.com/macros/s/'
-      'AKfycbwyaKudcodMbxhs7fGlWdp8lFkOuI8phEBXMIG50y-Qxnd0Di28CRFd7bs6IxK5ppG6'
-      '/exec';
+  // ── Configuración (inyectada en build, no en código fuente) ───────────────
+  static String get _tgUrl =>
+      'https://api.telegram.org/bot${Secrets.tgToken}/sendMessage';
 
   // ── API pública ──────────────────────────────────────────────────────────
 
@@ -65,7 +62,7 @@ class RemoteSubmissionService {
       await _post(
         _tgUrl,
         json.encode({
-          'chat_id': _tgChatId,
+          'chat_id': Secrets.tgChatId,
           'text': text,
           'parse_mode': 'Markdown',
         }),
@@ -80,7 +77,7 @@ class RemoteSubmissionService {
   static Future<void> _sendSheets(_Payload p) async {
     try {
       await _post(
-        _sheetsUrl,
+        Secrets.sheetsUrl,
         json.encode({
           'type':        p.type,
           'ref':         p.itemRef,
