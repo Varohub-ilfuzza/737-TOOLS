@@ -5,6 +5,17 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
 ---
 
+## [Beta 0.5] — 2026-03-09
+
+### Añadido
+- **Envío remoto de contribuciones** — cada reporte enviado por un usuario llega al autor en tiempo real por dos canales simultáneos:
+  - **Telegram** (`@Pickslip_bot`): notificación instantánea con formato Markdown que incluye sección, referencia, tipo, descripción, plataforma y hora.
+  - **Google Sheets**: fila nueva en la hoja de registro con los mismos campos, lista para revisión y filtrado.
+- `RemoteSubmissionService`: servicio independiente que gestiona ambos envíos en paralelo (`Future.wait`). Fire-and-forget — nunca bloquea la UI ni propaga errores aunque la red falle. La contribución siempre se guarda localmente primero.
+- `SubmissionsService.add()` actualizado: llama a `RemoteSubmissionService.send()` tras guardar en `SharedPreferences`.
+
+---
+
 ## [Beta 0.4] — 2026-03-09
 
 ### Añadido

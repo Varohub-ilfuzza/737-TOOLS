@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'remote_submission_service.dart';
 
 /// Tipos de reporte que un usuario puede enviar.
 enum ReportType {
@@ -35,17 +36,27 @@ class SubmissionsService {
   }) async {
     final prefs = await SharedPreferences.getInstance();
     final list = await getAll();
+    final now = DateTime.now();
     list.add({
-      'id': DateTime.now().millisecondsSinceEpoch.toString(),
+      'id': now.millisecondsSinceEpoch.toString(),
       'itemId': itemId,
       'itemRef': itemRef,
       'section': section,
       'type': type.label,
       'description': description,
-      'date': DateTime.now().toIso8601String(),
+      'date': now.toIso8601String(),
       'status': 'pending',
     });
     await prefs.setString(_key, json.encode(list));
+
+    // Envío remoto: fire-and-forget, nunca bloquea la UI.
+    RemoteSubmissionService.send(
+      section:     section,
+      itemRef:     itemRef,
+      type:        type.label,
+      description: description,
+      date:        now.toIso8601String(),
+    );
   }
 
   static Future<void> delete(String id) async {
